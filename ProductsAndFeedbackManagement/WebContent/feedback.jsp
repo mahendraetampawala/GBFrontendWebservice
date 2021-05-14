@@ -67,7 +67,7 @@
 					id="navbarCollapse">
 					<div class="navbar-nav mr-auto">
 						<a href="index.jsp" class="nav-item nav-link">Home</a>  
-						 <a href="my-account.jsp" class="nav-item nav-link active">My Account</a>
+						 <a href="feedback.jsp" class="nav-item nav-link active">My Account</a>
 						
 					</div>
 					
