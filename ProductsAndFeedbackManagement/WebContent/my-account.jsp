@@ -118,7 +118,7 @@ pageEncoding="ISO-8859-1"%> <%@page import = "com.Item" %>
 							href="#dashboard-tab" role="tab"><i
 							class="fa fa-tachometer-alt"></i>Product Item Controller</a> 
 						 <a
-							class="nav-link" href="index.html"><i
+							class="nav-link" href="index.jsp"><i
 							class="fa fa-sign-out-alt"></i>Logout</a>
 					</div>
 				</div>

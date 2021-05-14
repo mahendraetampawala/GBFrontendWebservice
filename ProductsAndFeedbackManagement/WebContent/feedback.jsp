@@ -12,7 +12,7 @@
 
 <link rel = "stylesheet" href = "css/bootstrap.min.css">
 <script src = "js/jquery-3.6.0.min.js"></script>
-<script src = "js/items.js"></script>
+<script src = "js/feedback.js"></script>
 
 
 <!-- Favicon -->
@@ -119,7 +119,7 @@
 							href="#dashboard-tab" role="tab"><i
 							class="fa fa-tachometer-alt"></i>Feedbacks</a> 
 						 <a
-							class="nav-link" href="index.html"><i
+							class="nav-link" href="index.jsp"><i
 							class="fa fa-sign-out-alt"></i>Logout</a>
 					</div>
 				</div>
