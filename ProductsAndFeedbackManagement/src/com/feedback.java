@@ -80,6 +80,70 @@ public class feedback
 		 // Prepare the html table to be displayed
 		 output = "<table border='0'; width=100%;>";
 				
+		 output = "<table border='1'><tr><th>Item ID</th>"
+	             +"<th>FeedbackID</th><th>Feedback</th>"
+	             + "<th>Remove</th></tr>";
+		 
+		 String query = "select * from feedbacks"; 
+		 Statement stmt = con.createStatement(); 
+		 ResultSet rs = stmt.executeQuery(query); 
+		 // iterate through the rows in the result set
+		 while (rs.next()) 
+		 { 
+		 String FID = Integer.toString(rs.getInt("FID")); 
+		 String CustomerID = rs.getString("CustomerID"); 
+		 String ItemID = rs.getString("ItemID"); 
+		 String FeedbackID = rs.getString("FeedbackID"); 
+		 String FeedBack = rs.getString("FeedBack"); 
+		
+		 // Add into the html table
+		
+		 
+		 output += "<tr><td><input id='hidItemIDUpdate' name='hidItemIDUpdate' type='hidden' value='" + FID
+					+ "'>" + ItemID + "</td>";
+					output += "<td>" + FeedbackID + "</td>";
+					output += "<td>" + FeedBack + "</td>";
+					
+		           
+		              
+		      //buttons
+		            
+		            output += 
+		            		"<td><input name = 'btnRemove' type='button' value = 'Remove' "
+		            		+ "class = 'btnRemove btn btn-danger' data-itemid='" + FID + "'>"
+		            		+"</td></tr>";
+	       
+					  
+			}
+			
+			con.close();
+			
+			// Complete the html table
+		
+	
+			output += "</table>";
+			}
+			catch (Exception e)
+			{
+				output = "Error while reading the feedbacks.";
+				System.err.println(e.getMessage());
+			}
+			
+			return output;
+		}
+
+
+	public String displayfeedback() 
+	{ 
+		 String output = ""; 
+		 try
+		 { 
+		 Connection con = connect(); 
+		 if (con == null) 
+		 {return "Error while connecting to the database for reading."; } 
+		 // Prepare the html table to be displayed
+		 output = "<table border='0'; width=100%;>";
+				
 			
 		 
 		 String query = "select * from feedbacks"; 
@@ -104,9 +168,9 @@ public class feedback
 			output +=  "<div class=\"col-md-6\">";     
 			output += "<div class=\"review-slider-item\">";             
 			
-			
+			//title + " " + name + ",";
 			output += "<div class=\"review-text\">";                
-			output += ItemID;
+			output += "Item ID :"+ItemID;
 			output +="<br>";
 			output +=   FeedBack;
 			output += "<div class=\"ratting\">";  
@@ -142,8 +206,8 @@ public class feedback
 			
 			return output;
 		}
-
-
+	
+	
 		public String updateItem(String fid, String cusid, String itemid, String feedbackid, String feed)
 		{
 				String output = "";

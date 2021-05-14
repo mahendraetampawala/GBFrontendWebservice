@@ -217,7 +217,7 @@
                 </div>
 						<%
 								feedback feedbacks = new feedback();
-								out.print(feedbacks.readItems());
+								out.print(feedbacks.displayfeedback());
 								%>
 						
             </div>
