@@ -69,29 +69,6 @@ public class feedbackAPI extends HttpServlet {
 			return map;
 		}
 	
+
 	
-	
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Map paras = getParasMap(request);
-		
-		String output = feedbackObj.updateItem(paras.get("hidItemIDSave").toString(),
-		paras.get("CustomerID").toString(),
-		paras.get("ItemID").toString(),
-		paras.get("FeedbackID").toString(),
-		paras.get("Feedback").toString());
-
-		response.getWriter().write(output);
-	}
-
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Map paras = getParasMap(request);
-		
-		String output = feedbackObj.deleteItem(paras.get("FID").toString());
-		
-		response.getWriter().write(output);
-	}
-
 }

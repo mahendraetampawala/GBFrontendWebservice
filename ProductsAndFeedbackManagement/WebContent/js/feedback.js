@@ -73,60 +73,9 @@ function onItemSaveComplete(response, status)
 }
 
 
-$(document).on("click", ".btnUpdate", function(event)
-{
-	$("#hidItemIDSave").val($(this).data("feedbackid"));
-	$("#CustomerID").val($(this).closest("tr").find('td:eq(0)').text());
-	$("#ItemID").val($(this).closest("tr").find('td:eq(1)').text());
-	$("#FeedbackID").val($(this).closest("tr").find('td:eq(2)').text());
-	$("#Feedback").val($(this).closest("tr").find('td:eq(3)').text());
-})
 
 
-$(document).on("click", ".btnRemove", function(event)
-{
-	$.ajax(
-	{
-	url : "feedbackAPI",
-	type : "DELETE",
-	data : "FID=" + $(this).data("feedbackid"),
-	dataType : "text",
-	complete : function(response, status)
-	{
-	onItemDeleteComplete(response.responseText, status);
-	}
-	});
-})
 
-
-function onItemDeleteComplete(response, status)
-{
-	if (status == "success")
-	{
-	var resultSet = JSON.parse(response);
-		if (resultSet.status.trim() == "success")
-		{
-		$("#alertSuccess").text("Successfully deleted.");
-		$("#alertSuccess").show();
-		$("#divItemsGrid").html(resultSet.data);
-		} 
-		else if (resultSet.status.trim() == "error")
-		{
-		$("#alertError").text(resultSet.data);
-		$("#alertError").show();
-		}
-	} 
-	else if (status == "error")
-	{
-	$("#alertError").text("Error while deleting.");
-	$("#alertError").show();
-	} 
-	else
-	{
-	$("#alertError").text("Unknown error while deleting..");
-	$("#alertError").show();
-	}
-}
 
 
 

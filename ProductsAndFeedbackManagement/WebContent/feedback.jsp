@@ -153,7 +153,7 @@
     							 <div id="divItemsGrid">
 									<%
 									feedback itemObject = new feedback();
-									out.print(itemObject.readItems());
+									
 									%>
 								</div>
 							
